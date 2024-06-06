@@ -1,0 +1,248 @@
+:root {
+  --primary-color: #fff;
+  --background-color: #EDDDD4;
+  --text-color: #3c3f64;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+body {
+  font: normal 16px/1.5 'Titillium Web', sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+  padding-bottom: 50px;
+
+  cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="48" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="%23000000" stroke="%23000000" stroke-width="0.25"></circle></svg>'), pointer;
+
+}
+
+
+/*Name*/
+
+section.name{
+  display: block;
+  height: 1500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.sign{
+  background-image: linear-gradient(90deg, rgba(94,114,235,1) 0%, rgba(255,145,144,1) 56%, rgba(254,193,149,1) 100%);
+  color: transparent;
+  -webkit-background-clip: text;
+  font-family: 'Pacifico', cursive;
+  font-size: 20vmin;
+  animation: move 1s infinite;
+}
+
+/* STYLING */
+
+.timeline {
+  position:   relative;
+}
+.timeline::before{
+  content:  "";
+  position:   absolute  ;
+  border-radius:  100%;
+  width:  60px;
+  height:   60px;
+  background:WHITE;
+
+  top:0;
+  left:50%;
+  right:  50%;
+  transform:  translate(-50%,-50%);
+}
+.timeline ul li {
+  list-style-type: none;
+  position: relative;
+  width: 6px;
+  margin: 0 auto;
+  padding-top: 200px;
+  background: #fff;
+}
+
+.timeline ul li::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%) rotate(45deg);
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+  background: #eee;
+}
+
+.timeline ul li div {
+  position: relative;
+  bottom: 0;
+  width: 400px;
+  padding: 20px;
+  background: var(--primary-color);
+  box-shadow: 4px 13px 30px 1px rgba(252, 56, 56, 0.2);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.timeline ul li div time {
+  position: absolute;
+  background: #f5af19;
+  width: 80px;
+  height: 30px;
+  top: -15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2px;
+}
+
+.timeline ul li div div {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeline ul li div div p {
+  text-align: center;
+}
+
+.timeline ul li div .discovery {
+  margin-right: 10px;
+}
+
+.timeline ul li:nth-of-type(odd) > div {
+  left: 45px;
+}
+
+.timeline ul li:nth-of-type(even) > div {
+  left: -439px;
+}
+
+/* ANIMATION */
+.timeline ul li div {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.timeline ul li:nth-of-type(odd) div {
+  transform: translate3d(100px, -10px, 0) rotate(10deg);
+}
+
+.timeline ul li:nth-of-type(even) div {
+  transform: translate3d(-100px, -10px, 0) rotate(10deg);
+}
+
+.timeline ul li.in-view div {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 900px) {
+  .timeline ul li div {
+    width: 250px;
+    flex-direction: column;
+  }
+
+  .timeline ul li div div {
+    width: 80%;
+    margin: 10px;
+  }
+
+  .timeline ul li:nth-of-type(even) > div {
+    left: -289px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    background: #8bfff4;
+  }
+
+  .timeline ul li {
+    margin-left: 20px;
+  }
+
+  .timeline ul li div {
+    width: calc(100vw - 91px);
+  }
+
+  .timeline ul li:nth-of-type(even) > div {
+    left: 45px;
+  }
+}
+
+body {
+    margin: 0;
+    height: 2000px; /* Juste pour permettre le défilement */
+}
+
+.statistiques {
+    background: #76CDCD;
+    padding: 1000px 0;
+    margin-top: 300px; /* Ajustez cette valeur pour votre cas particulier */
+    position: relative;
+    text-align:   center;
+    color:white;
+    font-family: "Comic Neue", cursive;
+  font-weight: 700;
+  font-style: normal;
+    
+}
+
+.statistiques h1{
+  position:sticky;
+  top:0;
+  margin-top:30px;
+    font-size:150px;
+    margin-bottom:500px;
+    background:   #76CDCD;
+    box-shadow:   20px 20px 20px #76CDCD;
+}
+
+.statistiques::before {
+    width: 300vw;
+    content: "";
+    position: absolute;
+    height: 600px;
+    background: #76CDCD;
+    top: var(--before-top, -15px); /* Utilisation de la variable CSS */
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px)rotate( 5deg);
+    transition: top 0.3s ease-out; /* Pour adoucir le mouvement */
+    box-shadow:-10px -10px 10px #CBCBCB;
+}
+
+
+.stat {
+    height: 200px;
+    width: 100%;
+
+    margin-bottom: 200px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+
+.stat h2,.stat p{
+  font-size:80px;
+}
